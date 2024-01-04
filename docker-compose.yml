@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "9000:8000"  # puerto de la aplicacion
+    depends_on:
+      - db  # Dependemos del servicio de la base de datos
+
+  db:
+    image: mysql:8.2.0
+    environment:
+      MYSQL_ROOT_PASSWORD: bia
+      MYSQL_DATABASE: codigos_postales
+      #MYSQL_USER: root
+      #MYSQL_PASSWORD: app_pass
+    ports:
+      - "3306:3306"  # Puerto para acceder a MySQL (cámbialo según sea necesario)
