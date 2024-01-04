@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "9000:8000"  # puerto de la aplicacion
+      - "9000:9000"  # puerto de la aplicacion
     depends_on:
       - db  # Dependemos del servicio de la base de datos
 
