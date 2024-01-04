@@ -1,0 +1,3 @@
+## quita El ambiente virtual
+venv/
+.venv/
