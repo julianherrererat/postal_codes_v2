@@ -11,5 +11,5 @@ COPY . /app
 RUN pip install -r /app/requirements.txt
 
 ### Corre la app
-CMD [ "python", "/app/app.py" ]
+CMD [ "python", "/app/src/app.py" ]
 
