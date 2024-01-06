@@ -1,3 +1,6 @@
 ## quita El ambiente virtual
 evn/
 .evn/
+
+.__pycache__
+/__pycache__

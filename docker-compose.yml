@@ -13,7 +13,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: bia
       MYSQL_DATABASE: codigos_postales
-      #MYSQL_USER: root
-      #MYSQL_PASSWORD: app_pass
+
     ports:
-      - "3306:3306"  # Puerto para acceder a MySQL (cámbialo según sea necesario)
+      - "3306:3306"  
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
