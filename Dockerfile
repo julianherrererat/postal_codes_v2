@@ -12,4 +12,3 @@ RUN pip install -r /app/requirements.txt
 
 ### Corre la app
 CMD [ "python", "/app/src/app.py" ]
-
