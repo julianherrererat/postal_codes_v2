@@ -21,7 +21,7 @@ Ahora bien, dentro de la base de datos se encuentran contenidas cuatro tablas, l
 Los servicios son independientes por tal motivo los dos muestran resultados
 
 
-<img src="/Users/julianherrera/postal_codes_v2/Untitled design.gif" alt="Prueba">
+![Muestra prueba](https://github.com/julianherrererat/postal_codes/blob/main/Untitled%20design.gif)
 
 
 ---
