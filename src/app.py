@@ -11,7 +11,12 @@ app = Flask(__name__)
 ## Esta es la pagina de Inicio
 @app.route('/',methods = ['GET'] )
 def ping():
+<<<<<<< HEAD
     return jsonify( {'Response': 'TEST PAGINIA'})
+=======
+    return jsonify( {'SERVICIO DE CARGA Y DESCARGA TIEMPO **3 mintos**': 'http://localhost:9000/csv',
+                     'SERVICIO DE CONSULTA DEL API Y CARGA DE INFORMACION': 'http://localhost:9000/receive-data'})
+>>>>>>> 51b1849 (Completado, solo falta pulir)
 
 ###### descarga el archivo y lo carga a la base de datos
 
@@ -20,6 +25,10 @@ def micro1():
     datos_csv= descargar_csv()
     pt1 = lee_datos()
     pt2= insertar_datos(pt1)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 51b1849 (Completado, solo falta pulir)
     return jsonify({'cantidad': len(pt1) })
 
 
