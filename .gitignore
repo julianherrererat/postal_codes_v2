@@ -1,6 +1,4 @@
+<<<<<<< HEAD
 ## quita El ambiente virtual
-venv/
-.venv/
-
-.__pycache__
-/__pycache__
+evn/
+.evn/
