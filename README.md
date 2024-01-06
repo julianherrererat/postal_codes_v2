@@ -24,13 +24,11 @@ Los servicios son independientes por tal motivo los dos muestran resultados
 <img src="/Users/julianherrera/postal_codes_v2/Untitled design.gif" alt="Prueba">
 
 
-
 ---
 ## Estructura Arquitectura
 # Estructura de Arquitectura del Proyecto
 
-```mermaid
-graph LR
+
     A[Root] --> B[src]
     A --> B[app.py]
     A --> C[data_csv.py]
