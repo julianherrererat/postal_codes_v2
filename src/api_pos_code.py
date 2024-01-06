@@ -1,9 +1,9 @@
 import requests
 import mysql.connector
 from evalua_data import evaluacion
-
 from sqlalchemy import create_engine
 
+### Esta funcion es la encargada de cargar informacion a la base de datos.
 
 def consult_and_store():
     config = {
@@ -21,6 +21,7 @@ def consult_and_store():
         cursor.execute(f"SELECT max(id) from maxid ;")
         max_id = cursor.fetchall()
 
+        ## Obtiene el Id mas grande para guardar correr la inf.
         if max_id == [(None,)]:
             ids=0
         else:
@@ -32,6 +33,7 @@ def consult_and_store():
         coordenadas = cursor.fetchall()
             
         print('Consulta Exitosa')
+
             
         ids = max([id for id, _, _ in coordenadas])
         print(ids)

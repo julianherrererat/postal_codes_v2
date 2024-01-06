@@ -1,7 +1,7 @@
 ##################################################
 #
 # Esta funcnion descarga el archivo desde google drive 
-#       y luego lo carga a la base de datos definida desde el servicio
+#       
 #
 ##################################################
 

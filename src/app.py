@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify ,abort,make_response
 import json
 import mysql.connector
 from data_csv import descargar_csv, lee_datos
@@ -11,10 +11,14 @@ app = Flask(__name__)
 ## Esta es la pagina de Inicio
 @app.route('/',methods = ['GET'] )
 def ping():
-    return jsonify( {'SERVICIO DE CARGA Y DESCARGA TIEMPO **3 mintos**': 'http://localhost:9000/csv',
-                     'SERVICIO DE CONSULTA DEL API Y CARGA DE INFORMACION': 'http://localhost:9000/receive-data'})
+    response = make_response(
+        jsonify({'SERVICIO DE CARGA Y DESCARGA TIEMPO ** 3 MINUTOS **': 'http://localhost:9000/csv',
+                 'SERVICIO DE CONSULTA DEL API Y CARGA DE INFORMACION': 'http://localhost:9000/receive-data'})
+    )
+    response.headers['Custom-Title'] = 'Página de Inicio'
+    return response
 
-###### descarga el archivo y lo carga a la base de datos
+###### SERVICIO 1: descarga el archivo y lo carga a la base de datos
 
 @app.route('/csv', methods=['GET'] )
 def micro1():
@@ -25,17 +29,19 @@ def micro1():
     return jsonify({'cantidad': len(pt1) })
 
 
-##### hace peticion del servio y luego cruza toda la informacion
+##### SERVICIO 2: hace peticion del servio y luego cruza toda la informacion
 
 @app.route('/receive-data', methods=['GET'])
 def micro2():
     datos_csv= consult_and_store()
-    datos_totales = json.loads(resultado_data())
-    datos_csv_json= jsonify({'ultimo_id': datos_csv})
-    rta = json.loads(resultado())
+    if not datos_csv:
+        return jsonify({'error': 'Por favor, ingrese primero a /csv para descargar los datos'})
+    else:
+        datos_totales = json.loads(resultado_data())
+        datos_csv_json= jsonify({'ultimo_id': datos_csv})
+        rta = json.loads(resultado())
 
-    return jsonify({'ULTIMO ID PROCESADO': datos_csv_json.json , 'DATOS ERROREOS': rta, 'RESULTADOS CONSULTA': datos_totales })
-
+        return jsonify({'ULTIMO ID PROCESADO': datos_csv_json.json , 'DATOS ERROREOS': rta, 'RESULTADOS CONSULTA': datos_totales })
 
 
 ### prueba de conexxion
@@ -57,6 +63,7 @@ def write_to_employee_data():
     return jsonify({'test': str(resultado)})
  
 
+##### PUERTO DE SALIDA DE LA APLIACION
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=9000, debug=True )

@@ -1,6 +1,6 @@
 import mysql.connector
 
-
+### esta aplicacion ingresa la infromacion de los CSV, se puede cambiar para usar otros IDs
 def insertar_datos(datos):
     config = {
         'user': 'root',
