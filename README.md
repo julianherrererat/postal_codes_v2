@@ -1,6 +1,6 @@
 # POSTAL CODES UK
 
-Con el fin de dar solución a la prueba propuesta, el desarrollo de la misma se centro en establecer un Producto Mínimo Viable trabajando con dos servicios, atendiendo los requerimientos de la Prueba. Para tal fin, se utilizó el framework de Python Flask, combinado con Mysql, los cuales fueron orquestados por un Docker y Docker-compose. Resulta relevante indicar que el proceso de Docker-compose tiene una duración aproximada de 3.5 minutos. 
+Con el fin de dar solución a la prueba propuesta, el desarrollo de la misma se centro en establecer un Producto Mínimo Viable trabajando con dos servicios, atendiendo los requerimientos de la Prueba. Para tal fin, se utilizó el framework de Python Flask, combinado con Mysql, los cuales fueron orquestados por un Docker y Docker-compose. Resulta relevante indicar que el proceso de Docker-compose tiene una duración aproximada de 3.5 minutos.(dependiendo del equipo) 
 
 Igualmente, para el desarrollo de la prueba se utilizó como flujo para el manejo del repositorio GIT-FLOW, por medio del cual se crearón las siguientes ramas: 
 
@@ -18,7 +18,33 @@ Ahora bien, dentro de la base de datos se encuentran contenidas cuatro tablas, l
 
 - codigos_posteles : Contiene toda la informacion que se descarga desde la API codigos postales y se crea un campo adicional *(fk_id)* para relacionarla con la tabla coordenadas.
 
+Los servicios son independientes por tal motivo los dos muestran resultados
+
+
+<img src="/Users/julianherrera/postal_codes_v2/Untitled design.gif" alt="Prueba">
+
+
+
 ---
+## Estructura Arquitectura
+# Estructura de Arquitectura del Proyecto
+
+```mermaid
+graph LR
+    A[Root] --> B[src]
+    A --> B[app.py]
+    A --> C[data_csv.py]
+    A --> D[caraga_db.py]
+    A --> E[api_pos_code.py.py]
+    A --> F[evalua_csv.py]
+    A --> G[respuestas.py]
+    B --> H[test]
+    A --> [Dockerfile]
+    A --> [docker-compose.yml]
+    A --> [init.sql]
+    A --> M[README.md]
+    A --> N[requirements.txt]
+    A --> O[.gitignore]
 ---
 
 ## Servicios
